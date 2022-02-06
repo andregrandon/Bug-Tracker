@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<!--breadcrumbs start-->
+<div class="banner">
+  <h1 id='bannerLogo'>ADD PROJECT</h1>
+</div>
+
+
+<!-- form -->
+<form class='addclass2' action="" method="POST">
+  {% csrf_token %}
+  {{addproject}}
+  <input type="submit" name="submit" >
+</form>
+
+
+<!--container end-->
+{% endblock content %}

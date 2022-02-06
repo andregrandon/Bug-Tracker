@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<!-- banner -->
+<div class="banner">
+  <h1 id='bannerLogo'>ADD BUG</h1>
+</div>
+
+<!-- form -->
+<div class="">
+  <form class='addclass1' action="" method="POST">
+    {% csrf_token %}
+    {{addbug}}
+    <input type="submit" name="submit" >
+  </form>
+
+</div>
+
+
+{% endblock content %}

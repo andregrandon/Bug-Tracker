@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="banner">
+  <h1 id='bannerLogo'>Delete Status?</h1>
+</div>
+
+<p class='deletep'>Are you sure you want to delete this status?</p>
+
+<form class="addclass5" method="POST">
+
+  {% csrf_token%}
+  <a id="cancelbtn" class="btn btn-warning" href="{% url 'listings:statuslisting'%}">Cancel</a>
+
+  <input id='deletebtn' class="btn btn-danger" type="submit"
+  onclick="return confirm('This will be removed forever. Are you sure you want to delete?');" name="Confirm" >
+
+</form>
+
+{% endblock %}

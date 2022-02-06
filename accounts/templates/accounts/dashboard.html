@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="banner">
+  <h1 class="col-lg-4 col-sm-4" id='bannerLogo'>DASHBOARD</h1>
+</div>
+
+<style>
+.dashboard .btn-circle {
+  width: 156px;
+  height: 156px;
+  text-align: center;
+  padding: 6px 0;
+  line-height: 1.42;
+  border-radius: 90px;
+  color: #fff;
+  background: #003d65;
+  background-color: #003d65;
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 100px;
+}
+.btn-circle div{
+  margin-top: 40px;
+
+}
+.mydash {
+	border:1px solid #003d65;
+	padding:10px;
+	margin:10px;
+}
+.col-lg-2 {
+	width:14.667%;
+}
+
+
+</style>
+
+
+
+
+	<!--breadcrumbs end-->
+	<div  id ="dashboard" class="container w">
+			<div class="row dashboard">
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:buglisting'%}" class="btn btn-default btn-circle"><div>Bug<br>Report</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:typelisting'%}" class="btn btn-default btn-circle"><div>Bug Type<br>Report</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:statuslisting'%}" class="btn btn-default btn-circle"><div>Status<br>Report</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:projectlisting'%}" class="btn btn-default btn-circle"><div>Project<br>Report</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:userlisting'%}" class="btn btn-default btn-circle"><div>Users<br>Report</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:add_bug'%}" class="btn btn-default btn-circle"><div>Add<br>Bug</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:add_user'%}" class="btn btn-default btn-circle"><div>Add<br>Users</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:add_project'%}" class="btn btn-default btn-circle"><div>Add<br>Project</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:add_status'%}" class="btn btn-default btn-circle"><div>Add<br>Status</div></a>
+				</div><!--/.col-->
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'listings:add_type'%}" class="btn btn-default btn-circle"><div>Add<br>Bug Type</div></a>
+				</div><!--/.col-->
+		
+				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 mydash">
+					<a href="{% url 'accounts:logout'%}" onclick="return confirm('Are you sure to logout?');" class="btn btn-default btn-circle"><div style="margin-top:55px">Logout</div></a>
+				</div><!--/.col-->
+			</div><!-- row -->
+	</div>
+	<!-- container -->
+{% endblock content %}

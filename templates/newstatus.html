@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% block content %}
+<script>
+	jQuery(function () {
+		jQuery("#appointment_date").datepicker({
+			changeMonth: true,
+			changeYear: true,
+			yearRange: "0:+1",
+			dateFormat: 'd MM,yy'
+		});
+	});
+</script>
+
+
+<div class="banner">
+  <h1 id='bannerLogo'>ADD STATUS</h1>
+</div>
+<!--breadcrumbs end-->
+
+<!--container start-->
+<div class="typo">
+  <div class="container">
+    <div class="typo-grids">
+      <center>
+        <div class="registration-bg">
+          <div class="row">
+            <form enctype="multipart/form-data" method="post" class="form-signin wow fadeInUp" action="" style="max-width:60%">
+              {% csrf_token %}
+              <h2 class="form-signin-heading">
+                {% if fn == "add" %}
+                  Add New Status
+                {% elif fn == "update" %}
+                  Update Status
+                {% endif %}
+              </h2>
+              {% if messages %}
+                <div class="alert alert-success fade in" style="margin:10px;">
+                  {% for message in messages %}
+                    <strong>{{ message }}</strong>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <div class="login-wrap">
+
+
+
+                <div class="col-xs-6 form-group">
+                  <label for="pwd">Status Name</label>
+                  <input type="text" value="{{statusDetails.status_title}}" name="status_title" id="status_title" class="form-control" placeholder="Status Name" required>
+                </div>
+
+
+                <div class="col-xs-6 form-group" style="clear:both">
+                  <label for="pwd">Description of the Status</label>
+                  <textarea class="form-control" style="height:150px;" placeholder="Description" autofocus="" name="status_description" id="status_description" required>{{statusDetails.status_description}}</textarea>
+                </div>
+                <button class="btn btn-lg btn-login btn-block" type="submit">Submit</button>
+              </div>
+              <input type="hidden" name="act" value="save_status">
+              <input type="hidden" name="user_id" value="{{statuslist.status_id}}">
+            </form>
+          </div>
+        </div>
+      </center>
+    </div>
+  </div>
+</div>
+
+<!--container end-->
+{% endblock content %}

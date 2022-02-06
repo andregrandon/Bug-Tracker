@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<div class="banner">
+  <h1 id='bannerLogo'>ADD DEPARTMENT</h1>
+</div>
+
+
+<!-- form -->
+<form class='addclass'action="" method="POST">
+  {% csrf_token %}
+  {{adddept}}
+  <input type="submit" name="submit" >
+</form>
+
+<!--container end-->
+{% endblock content %}
