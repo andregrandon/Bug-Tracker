@@ -3,6 +3,7 @@ use. It is used primarily to report bugs on an alternate website so that teams a
 fixes needed. This website can report, add, give details, and delete pending or completed fixes.
 User can add, update, view, or delete information on bugs such as the bug itself, user reporting,
 project name, status on bug, bug type, department name. Below are some pictures of website in action!
+*Project screen formating was made only for devices size-md and above not mobile
 
 
 1. Navigate to project root folder
