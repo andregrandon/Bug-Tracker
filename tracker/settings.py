@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRETKEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool( os.environ.get('DEBUG', False) )
 
-ALLOWED_HOSTS =  ['andregrandon-bugtracker.herokuapp.com','198.211.99.20', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS =  ['andregrandon-bugtracker.herokuapp.com','198.211.99.20', 'localhost', '127.0.0.1','*']
 
 
 
