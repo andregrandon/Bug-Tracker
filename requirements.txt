@@ -6,7 +6,7 @@ django-filter==21.1
 django-location-field==2.1.0
 django-phone-verify==0.1.1
 django-bootstrap3==15.0.0
-django-phonenumber-field>=6.0.0
+django-phonenumber-field==7.2.0
 django-storages==1.12.3
 gunicorn==20.1.0
 heroku3==5.1.4
