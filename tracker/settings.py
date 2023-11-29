@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'accounts',
-    'phonenumber_field',
+    'django-phonenumber-field',
     'static',
     'listings',
     'storages',
