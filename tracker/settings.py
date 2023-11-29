@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'bootstrap3',
     'phonenumbers',
     'accounts',
-    'django-phonenumber-field',
     'static',
     'listings',
     'storages',
