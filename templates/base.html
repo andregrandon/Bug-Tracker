@@ -29,53 +29,56 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-5" role="navigation" id="navbar">
-      <a id="brand" class="navbar-brand mb-0 h1" href="{% url 'home' %}">Bug Tracking System</a>
       <div class="container">
-        <div class="navbar-nav align-items-center">
-        <div class="navbar-nav">
-          {% if user.is_authenticated %}
-          <a class="nav-item nav-link" id="navtext" href="{% url 'home' %}"class="btn btn-simple">Home</a>
-          <a class="nav-item nav-link" id="navtext" href="{% url 'about' %}" class="btn btn-simple">About</a>
-          <a class="nav-item nav-link" id="navtext"  href="{% url 'accounts:dashboard' %}" class="btn btn-simple">Dashboard</a>
-          <div class="dropdown" data-dropdown>
-                  <button class="button-solid" data-dropdown-button>Add New</button>
-                  <div class="dropdown-menu information-grid">
-                          <div class="dropdown-links">
-                              <a href="{% url 'listings:add_bug' %}" class="link">Add New Bug</a>
-                              <a href="{% url 'listings:add_type' %}" class="link">Add New Bug Type</a>
-                              <a href="{% url 'listings:add_status' %}" class="link">Add New Status</a>
-                              <a href="{% url 'listings:add_dept' %}" class="link">Add New Department</a>
-                              <a href="{% url 'listings:add_project' %}" class="link">Add New Project</a>
-                              <a href="{% url 'listings:add_user' %}" class="link">Add New User</a>
+          <a id="brand" class="navbar-brand mb-0 h1" href="{% url 'home' %}">Bug Tracking System</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <div class="navbar-nav ml-auto">
+                  {% if user.is_authenticated %}
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'home' %}" class="btn btn-simple">Home</a>
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'about' %}" class="btn btn-simple">About</a>
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'accounts:dashboard' %}" class="btn btn-simple">Dashboard</a>
+                      <div class="dropdown">
+                          <button class="btn btn-simple dropdown-toggle" type="button" id="addNewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Add New
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="addNewDropdown">
+                              <a class="dropdown-item" href="{% url 'listings:add_bug' %}">Add New Bug</a>
+                              <a class="dropdown-item" href="{% url 'listings:add_type' %}">Add New Bug Type</a>
+                              <a class="dropdown-item" href="{% url 'listings:add_status' %}">Add New Status</a>
+                              <a class="dropdown-item" href="{% url 'listings:add_dept' %}">Add New Department</a>
+                              <a class="dropdown-item" href="{% url 'listings:add_project' %}">Add New Project</a>
+                              <a class="dropdown-item" href="{% url 'listings:add_user' %}">Add New User</a>
                           </div>
-                  </div>
-            </div>
-            <div class="dropdown" data-dropdown>
-                    <button class="button-solid" data-dropdown-button>Reports</button>
-                    <div class="dropdown-menu information-grid">
-                            <div class="dropdown-links">
-                                <a href="{% url 'listings:buglisting' %}" class="link">Bug Reports</a>
-                                <a href="{% url 'listings:statuslisting' %}" class="link">Status Reports</a>
-                                <a href="{% url 'listings:typelisting' %}" class="link">Bug Type Reports</a>
-                                <a href="{% url 'listings:deptlisting' %}" class="link">Department Reports</a>
-                                <a href="{% url 'listings:projectlisting' %}" class="link">Project Reports</a>
-                                <a href="{% url 'listings:userlisting' %}" class="link">User Reports</a>
-                            </div>
-                    </div>
+                      </div>
+                      <div class="dropdown">
+                          <button class="btn btn-simple dropdown-toggle" type="button" id="reportsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Reports
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="reportsDropdown">
+                              <a class="dropdown-item" href="{% url 'listings:buglisting' %}">Bug Reports</a>
+                              <a class="dropdown-item" href="{% url 'listings:statuslisting' %}">Status Reports</a>
+                              <a class="dropdown-item" href="{% url 'listings:typelisting' %}">Bug Type Reports</a>
+                              
+                              <a class="dropdown-item" href="{% url 'listings:projectlisting' %}">Project Reports</a>
+                              <a class="dropdown-item" href="{% url 'listings:userlisting' %}">User Reports</a>
+                          </div>
+                      </div>
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'accounts:logout' %}"  onclick="return confirm('Are you sure to logout?');" class="btn btn-simple">Log out</a>
+                  {% else %}
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'home' %}" class="btn btn-simple">Home</a>
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'about' %}" class="btn btn-simple">About</a>
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'accounts:login' %}" class="btn btn-simple">Login</a>
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'contact:contact' %}" class="btn btn-simple">Contact Us</a>
+                  {% endif %}
               </div>
-
-
-          <a class="nav-item nav-link" id="navtext" href="{% url 'accounts:logout' %}"  onclick="return confirm('Are you sure to logout?');" class="btn btn-simple">Log out</a>
-          {% else %}
-            <a class="nav-item nav-link" id="navtext" href="{% url 'home' %}"class="btn btn-simple">Home</a>
-            <a class="nav-item nav-link" id="navtext" href="{% url 'about' %}" class="btn btn-simple">About</a>
-            <a class="nav-item nav-link" id="navtext" href="{% url 'accounts:login' %}" class="btn btn-simple">Login</a>
-
-            <a class="nav-item nav-link" id="navtext" href="{% url 'contact:contact' %}" class="btn btn-simple">Contact Us</a>
-          {% endif %}
-        </div>
+          </div>
       </div>
-    </nav>
+  </nav>
+  
         </div>
       </div>
 
