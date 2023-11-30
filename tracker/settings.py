@@ -18,7 +18,12 @@ from django.conf import settings
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMP_DIR = os.path.join(BASE_DIR,'templates')
 # DASH_DIR = os.path.join(BASE_DIR,'accounts/templates')
+from django.conf import settings
 
+# ...
+
+# Use BigAutoField as the default primary key field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,10 +32,12 @@ TEMP_DIR = os.path.join(BASE_DIR,'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRETKEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool( os.environ.get('DEBUG', False) )
+DEBUG = bool( os.environ.get('DEBUG', True) )
 
 ALLOWED_HOSTS =  ['andregrandon-bugtracker.herokuapp.com','198.211.99.20', 'localhost', '127.0.0.1','*']
 
+
+# settings.py
 
 
 # Application definition
@@ -43,12 +50,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
+    'tracker',
     'phonenumbers',
     'accounts',
     'static',
     'listings',
     'storages',
     'contact',
+    
 
 
 

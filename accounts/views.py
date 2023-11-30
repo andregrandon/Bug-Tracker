@@ -8,14 +8,13 @@ from django.db.models import Q
 from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
 from django.db import connection
-import re
+from .forms import SignUpForm
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 
 
 from accounts import forms
-# Create your views here.
 
 
 @login_required
@@ -27,3 +26,15 @@ def dashboard(request):
 class LogSuccess(CreateView):
     success_url = reverse_lazy("accounts:login")
     template_name = 'accounts/signup.html'
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('accounts:login')  # Redirect to the home page after successful signup
+    else:
+        form = SignUpForm()
+
+    return render(request, 'accounts/signup.html', {'form': form})
