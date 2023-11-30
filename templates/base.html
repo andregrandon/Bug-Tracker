@@ -41,32 +41,8 @@
                       <a class="nav-item nav-link" id="navtext" href="{% url 'home' %}" class="btn btn-simple">Home</a>
                       <a class="nav-item nav-link" id="navtext" href="{% url 'about' %}" class="btn btn-simple">About</a>
                       <a class="nav-item nav-link" id="navtext" href="{% url 'accounts:dashboard' %}" class="btn btn-simple">Dashboard</a>
-                      <div class="dropdown">
-                          <button class="btn btn-simple dropdown-toggle" type="button" id="addNewDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Add New
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="addNewDropdown">
-                              <a class="dropdown-item" href="{% url 'listings:add_bug' %}">Add New Bug</a>
-                              <a class="dropdown-item" href="{% url 'listings:add_type' %}">Add New Bug Type</a>
-                              <a class="dropdown-item" href="{% url 'listings:add_status' %}">Add New Status</a>
-                              <a class="dropdown-item" href="{% url 'listings:add_dept' %}">Add New Department</a>
-                              <a class="dropdown-item" href="{% url 'listings:add_project' %}">Add New Project</a>
-                              <a class="dropdown-item" href="{% url 'listings:add_user' %}">Add New User</a>
-                          </div>
-                      </div>
-                      <div class="dropdown">
-                          <button class="btn btn-simple dropdown-toggle" type="button" id="reportsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Reports
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="reportsDropdown">
-                              <a class="dropdown-item" href="{% url 'listings:buglisting' %}">Bug Reports</a>
-                              <a class="dropdown-item" href="{% url 'listings:statuslisting' %}">Status Reports</a>
-                              <a class="dropdown-item" href="{% url 'listings:typelisting' %}">Bug Type Reports</a>
-                              
-                              <a class="dropdown-item" href="{% url 'listings:projectlisting' %}">Project Reports</a>
-                              <a class="dropdown-item" href="{% url 'listings:userlisting' %}">User Reports</a>
-                          </div>
-                      </div>
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'listings:add_bug' %}" class="btn btn-simple">Add Bug</a>
+                      <a class="nav-item nav-link" id="navtext" href="{% url 'listings:buglisting' %}" class="btn btn-simple">Bug Reports</a>
                       <a class="nav-item nav-link" id="navtext" href="{% url 'accounts:logout' %}"  onclick="return confirm('Are you sure to logout?');" class="btn btn-simple">Log out</a>
                   {% else %}
                       <a class="nav-item nav-link" id="navtext" href="{% url 'home' %}" class="btn btn-simple">Home</a>
@@ -112,8 +88,8 @@
             <address>
               <p><i class="fa fa-home pr-10"></i>Address: No.XXXXXX street</p>
               <p><i class="fa fa-globe pr-10"></i>Toronto, CA </p>
-              <p><i class="fa fa-mobile pr-10"></i>Mobile : (519) 212-2990 </p>
-              <p><i class="fa fa-phone pr-10"></i>Phone : (519) 212-2990 </p>
+              <p><i class="fa fa-mobile pr-10"></i>Mobile : (123) 456-7890 </p>
+              <p><i class="fa fa-phone pr-10"></i>Phone : (123) 456-7890 </p>
               <p><i class="fa fa-envelope pr-10"></i>Email : <a href="javascript:;">22agrandon@gmail.com</a></p>
             </address>
           </div>
@@ -121,26 +97,41 @@
             <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
               <h2 id='footh1'>MODULES</h1>
               <ul class="page-footer-list">
+                {% if user.is_authenticated %}
                 <li>
                   <i class="fa fa-angle-right"></i>
-                  <a href="{% url 'accounts:login' %}">User Module</a>
+                  <a href="{% url 'listings:buglisting' %}">Bug Report Module</a>
                 </li>
                 <li>
                   <i class="fa fa-angle-right"></i>
-                  <a href="{% url 'accounts:login' %}">Bug Module</a>
+                  <a href="{% url 'listings:projectlisting' %}">Project Report</a>
                 </li>
                 <li>
                   <i class="fa fa-angle-right"></i>
-                  <a href="{% url 'accounts:login' %}">Login Module</a>
+                  <a href="{% url 'listings:userlisting' %}">User Report</a>
                 </li>
                 <li>
                   <i class="fa fa-angle-right"></i>
-                  <a href="{% url 'accounts:login' %}">Register Module</a>
+                  <a href="{% url 'accounts:dashboard' %}">Dashboard Module</a>
                 </li>
-                <li>
-                  <i class="fa fa-angle-right"></i>
-                  <a href="{% url 'accounts:login' %}">Dashboard Module</a>
-                </li>
+                {% else %}
+                  <li>
+                    <i class="fa fa-angle-right"></i>
+                    <a href="{% url 'accounts:login' %}">User Module</a>
+                  </li>
+                  <li>
+                    <i class="fa fa-angle-right"></i>
+                    <a href="{% url 'accounts:login' %}">Report Module</a>
+                  </li>
+                  <li>
+                    <i class="fa fa-angle-right"></i>
+                    <a href="{% url 'accounts:login' %}">Project Report</a>
+                  </li>
+                  <li>
+                    <i class="fa fa-angle-right"></i>
+                    <a href="{% url 'accounts:login' %}">Dashboard Module</a>
+                  </li>
+                  {% endif %}
               </ul>
             </div>
           </div>
@@ -166,7 +157,7 @@
                 </li>
                 <li>
                   <i class="fa fa-angle-right"></i>
-                  <a href="https://andregrandon.herokuapp.com" >Andre Personal Website</a>
+                  <a href="https://andregrandon-portfolio-e30b590e26c4.herokuapp.com" >Andre Personal Website</a>
                 </li>
               </ul>
             </div>
